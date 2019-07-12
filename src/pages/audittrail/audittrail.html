@@ -1,0 +1,23 @@
+<!--
+  Generated template for the AudittrailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Audit Trail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item text-wrap *ngFor="let audittrail of audittrails">
+      <h2>{{ audittrail.name }}</h2>
+      <p>{{ audittrail.desc }}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

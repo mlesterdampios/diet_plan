@@ -1,0 +1,56 @@
+<!--
+  Generated template for the newBmicalculatorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>BMI Calculator</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card color="primary">
+    <ion-card-header>
+      <h1>Congratulations</h1>
+    </ion-card-header>
+    <ion-card-content>
+      You have completed the 7 days guide. Please input your current height and weight to re-calculate the BMI.
+    </ion-card-content>
+  </ion-card>
+  <ion-item-divider color="primary">Inputs</ion-item-divider>
+
+  <ion-item>
+    <ion-label>Mass (kg)</ion-label>
+    <ion-input  type="number" [(ngModel)]="variable.kg"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Height (m)</ion-label>
+    <ion-input  type="number" [(ngModel)]="variable.m"></ion-input>
+  </ion-item>
+  <ion-item>
+    <button ion-button block color="secondary" (click)="CalculateBMI()">Calculate</button>
+  </ion-item>
+  <ion-item-divider *ngIf="variable.bmi" color="primary">Results</ion-item-divider>
+  <ion-item *ngIf="variable.bmi">
+    <ion-label>BMI</ion-label>
+    <ion-input readonly type="text" [(ngModel)]="variable.bmi"></ion-input>
+  </ion-item >
+  <ion-item *ngIf="variable.bmi">
+    <ion-label>Equivalent</ion-label>
+    <ion-input readonly type="text" [(ngModel)]="variable.equi"></ion-input>
+  </ion-item>
+  <ion-card *ngIf="variable.bmi" color="secondary">
+    <ion-card-header>
+      <h1>Required</h1>
+    </ion-card-header>
+    <ion-card-content>
+      Please restart the application once you pressed "Next" to apply changes
+    </ion-card-content>
+  </ion-card>
+  <button *ngIf="variable.bmi" ion-button block color="primary" (click)="Next()">Next</button>
+</ion-content>

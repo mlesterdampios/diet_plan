@@ -1,0 +1,60 @@
+<!--
+  Generated template for the everydaymealDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ everydaymeal.name }} 
+	</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-card>
+		<ion-slides autoplay="3000">
+			<ion-slide>
+				<img [src]="everydaymeal.profile_img" />
+			</ion-slide>
+		</ion-slides>
+
+		<ion-card-content>
+			<ion-card-title>{{ everydaymeal.name }} 
+				<ion-chip style="margin-left: 5px;">
+					<!--<ion-label color="primary"> {{ everydaymeal.time_length }} </ion-label>-->
+				</ion-chip>
+			</ion-card-title>
+		</ion-card-content>
+	</ion-card>
+			<ion-list>
+			  <ion-item *ngIf="everydaymeal.full_instructions.breakfast">
+			    <ion-label text-wrap><b>Breakfast</b>
+			    <p [innerHTML]="nl2br(everydaymeal.full_instructions.breakfast)"></p>
+				</ion-label>
+			    <ion-checkbox [(ngModel)]="savedMeal[everydaymeal.id].breakfast" (click)="updateMeal(1)"></ion-checkbox>
+			  </ion-item>
+			  <ion-item *ngIf="everydaymeal.full_instructions.lunch">
+			    <ion-label text-wrap><b>Lunch and Afternoon</b>
+			    <p [innerHTML]="nl2br(everydaymeal.full_instructions.lunch)"></p>
+				</ion-label>
+			    <ion-checkbox [(ngModel)]="savedMeal[everydaymeal.id].lunch" (click)="updateMeal(2)"></ion-checkbox>
+			  </ion-item>
+			  <ion-item *ngIf="everydaymeal.full_instructions.dinner">
+			    <ion-label text-wrap><b>Dinner</b>
+			    <p [innerHTML]="nl2br(everydaymeal.full_instructions.dinner)"></p>
+				</ion-label>
+			    <ion-checkbox [(ngModel)]="savedMeal[everydaymeal.id].dinner" (click)="updateMeal(3)"></ion-checkbox>
+			  </ion-item>
+			  <ion-item *ngIf="everydaymeal.full_instructions.additional">
+			    <ion-label text-wrap><b>Additional Tips</b>
+			     <span [innerHTML]="everydaymeal.full_instructions.additional"></span>
+				</ion-label>
+				<p></p>
+			  </ion-item>
+			</ion-list>
+</ion-content>
+
+<ion-footer>
+  <progress-bar [progress]="loadProgress"></progress-bar>
+</ion-footer>

@@ -1,0 +1,7 @@
+{
+  "name": "diet_plan",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
